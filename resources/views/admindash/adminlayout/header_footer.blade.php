@@ -76,8 +76,9 @@
 <span>Students</span>
 </a>
 <ul>
-<li><a class="active" href="index-2.html">Add Student</a></li>
+<li><a class="active" href="{{route('AddStudent')}}">Add Student</a></li>
 <li><a href="{{route('AddBatch')}}">Add Batch</a></li>
+
 
 </ul>
 </li>
