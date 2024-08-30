@@ -78,6 +78,7 @@
 <ul>
 <li><a class="active" href="{{route('AddStudent')}}">Add Student</a></li>
 <li><a href="{{route('AddBatch')}}">Add Batch</a></li>
+<li><a href="{{route('ViewStudents')}}">View Students</a></li>
 
 
 </ul>

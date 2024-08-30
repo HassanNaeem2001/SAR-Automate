@@ -9,8 +9,10 @@ Route::get('/', function () {
 Route::get('/add_batch', function () {
     return view('admindash.addbatch');
 })->name('AddBatch');
-Route::get('/add_student', function () {
-    return view('admindash.addstudent');
-})->name('AddStudent');
+// Route::get('/add_student', function () {
+//     return view('admindash.addstudent');
+// })->name('AddStudent');
+Route::get('/add_student',[AdminController::class,('getbatch')])->name('AddStudent');
+Route::post('/insert_student',[AdminController::class,('addstudent')])->name('InsertStudent');
 Route::post('/insert_batch',[AdminController::class,('insert_batch')])->name('batchinsert');
-Route::post('/insert_student',[AdminController::class,('insert_student')])->name('studentinsert');
+Route::get('/get_students',[AdminController::class,('get_students')])->name('ViewStudents');
