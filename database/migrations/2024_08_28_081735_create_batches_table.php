@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('Batch_Code');
             $table->string('Batch_Timings');
             $table->date('Batch_Start_Date');
-            $table->date('Batch_Faculty_Id');
+            $table->integer('Batch_Faculty_Id');
             $table->foreign('Batch_Faculty_Id')->references('id')->on('faculties');
             $table->timestamps();
         });

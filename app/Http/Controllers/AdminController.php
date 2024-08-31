@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Batch;
 use App\Models\Student;
 use App\Models\Faculty;
+
 use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
@@ -17,6 +18,7 @@ class AdminController extends Controller
         $b = new Batch();
         $b->Batch_Code = $batchcode;
         $b->Batch_Timings = $timings;
+        $b->Batch_Faculty_Id = $req->faculty;
         $b->Batch_Start_Date = $date;
         $b->save();
         return redirect()->back()->with('insertmessage','Batch Added Successfully');
@@ -54,13 +56,22 @@ class AdminController extends Controller
     }
     public function get_students()
     {
-        $std = DB::table('students')->join('batches','batches.id','=','students.Student_Batch_Id')->get();
+        $std = DB::table('students')->join('batches','batches.id','=','students.Student_Batch_Id')->join('faculties','batches.Batch_Faculty_Id','=','faculties.id')->paginate(10);
         return View('admindash.viewstudents',compact('std'));
 
     }
     public function getfaculties(){
         $fac = Faculty::get();
         return View('admindash.addbatch',compact('fac'));
+    }
+    public function insert_faculty(Request $req)
+    {
+        $table = new Faculty();
+        $table->Faculty_First_Name = $req->facultyfirstname;
+        $table->Faculty_Last_Name = $req->facultylastname;
+        $table->Faculty_Timings = $req->facultytimings;
+        $table->save();
+        return redirect()->back()->with('successmessage','Faculty has been added');
     }
 }
 

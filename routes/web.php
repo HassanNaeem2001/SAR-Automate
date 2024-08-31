@@ -20,4 +20,4 @@ Route::get('/get_students',[AdminController::class,('get_students')])->name('Vie
 Route::get('/add_faculty',function(){
     return View('admindash.addfaculty');
 })->name('AddFaculty');
-Route::post('/insert_faculty',[AdminController::class,('insert_faculty')])->name('InsertFaculties');
+Route::post('/insert_faculty',[AdminController::class,('insert_faculty')])->name('InsertFaculty');

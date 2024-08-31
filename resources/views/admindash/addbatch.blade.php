@@ -49,9 +49,9 @@
     </div>
     <div class="inputs">
     <label for="timings">Select Faculty</label>
-    <select name="timings" id="" class="form-control">
+    <select name="faculty" id="" class="form-control">
         @foreach($fac as $f)
-        <option value="{{$f->id}}">{{$f->Faculty_Name}}</option>
+        <option value="{{$f->id}}">{{$f->Faculty_First_Name}} {{$f->Faculty_Last_Name}} | ({{$f->Faculty_Timings}})</option>
         @endforeach
     </select>
     </div>

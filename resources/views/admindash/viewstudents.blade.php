@@ -1,17 +1,15 @@
 @extends('admindash.adminlayout.header_footer')
 @section('content')
-<link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css" />
-  
-
 
 <h3>All Students</h3>
 <hr>
-<table id="myTable" class="display">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Student Name</th>
             <th>Batch Name</th>
-            <th>Student Phone</th>
+            <th>Faculty Name</th>
+            <th colspan="3">Operations</th>
         </tr>
     </thead>
     <tbody>
@@ -19,19 +17,30 @@
         <tr>
             <td>{{$s->Student_Name}}</td>
             <td>{{$s->Batch_Code}}</td>
-            <td>{{$s->Student_Phone}}</td>
+            <td>{{$s->Faculty_First_Name}}</td>
+            <td>
+                <form action="" method="post">
+                    <i class="fa fa-trash" style="color: red;font-size:20px;"></i>
+                    
+                </form>
+            </td>
+            <td>
+                <form action="" method="post">
+                    <i class="fa fa-pen" style="color: blue;font-size:20px;"></i>
+                    
+                </form>
+            </td>
+            <td>
+                <form action="" method="post">
+                    <i class="fa fa-eye" style="color: black;font-size:20px;"></i>
+                    
+                </form>
+            </td>
+       
         </tr>
+       
         @endforeach
     </tbody>
 </table>
-
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
-<script>
-    $(document).ready( function () {
-    $('#myTable').DataTable({
-        responsive: true
-    });
-} );
-</script>
+{{$std->links()}}
 @endsection
