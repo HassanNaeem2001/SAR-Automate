@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Batch;
 use App\Models\Student;
+use App\Models\Faculty;
 use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
@@ -40,6 +41,7 @@ class AdminController extends Controller
     public function addstudent(Request $req)
     {
         $table = new Student();
+        $table->Student_Id = $req->studentid;
         $table->Student_Name = $req->studentname;
         $table->Student_Email = $req->studentemail;
         $table->Student_Phone = $req->studentphone;
@@ -55,6 +57,10 @@ class AdminController extends Controller
         $std = DB::table('students')->join('batches','batches.id','=','students.Student_Batch_Id')->get();
         return View('admindash.viewstudents',compact('std'));
 
+    }
+    public function getfaculties(){
+        $fac = Faculty::get();
+        return View('admindash.addbatch',compact('fac'));
     }
 }
 

@@ -48,6 +48,14 @@
     </select>
     </div>
     <div class="inputs">
+    <label for="timings">Select Faculty</label>
+    <select name="timings" id="" class="form-control">
+        @foreach($fac as $f)
+        <option value="{{$f->id}}">{{$f->Faculty_Name}}</option>
+        @endforeach
+    </select>
+    </div>
+    <div class="inputs">
         <label for="date">Start Date</label>
         <input type="date" class="form-control" name="date">
     </div>

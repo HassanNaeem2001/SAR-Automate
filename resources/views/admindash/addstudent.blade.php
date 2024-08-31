@@ -32,6 +32,10 @@
 <form action="{{route('InsertStudent')}}" method="post">
     @csrf
     <div class="inputs">
+        <label for="studentname">Enter Student ID</label>
+        <input type="text" class="form-control" name="studentid">
+    </div>
+    <div class="inputs">
         <label for="studentname">Enter Student Name</label>
         <input type="text" class="form-control" name="studentname">
     </div>

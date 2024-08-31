@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('batches', function (Blueprint $table) {
+        Schema::create('faculties', function (Blueprint $table) {
             $table->id();
-            $table->string('Batch_Code');
-            $table->string('Batch_Timings');
-            $table->date('Batch_Start_Date');
-            $table->date('Batch_Faculty_Id');
-            $table->foreign('Batch_Faculty_Id')->references('id')->on('faculties');
+            $table->string('Faculty_First_Name');
+            $table->string('Faculty_Last_Name');
+            $table->string('Faculty_Timings');
+            $table->string('Faculty_Status')->default('Active');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('batches');
+        Schema::dropIfExists('faculties');
     }
 };

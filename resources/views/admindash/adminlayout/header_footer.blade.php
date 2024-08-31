@@ -92,7 +92,7 @@
 <span>Teachers</span>
 </a>
 <ul>
-<li><a class="active" href="index-2.html">Add Teacher</a></li>
+<li><a class="active" href="{{route('AddFaculty')}}">Add Teacher</a></li>
 
 
 </ul>
