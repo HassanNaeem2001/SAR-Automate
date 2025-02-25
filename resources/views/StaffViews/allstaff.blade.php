@@ -20,9 +20,9 @@
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Phone Number</th>
-                            <th>Address</th>
                             <th>Home Phone</th>
-                            <th>Role</th>
+                            <th>Role</th> 
+                            <th>Status</th> 
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -33,9 +33,9 @@
                             <td>{{ $staff->StaffName }}</td>
                             <td>{{ $staff->StaffEmail }}</td>
                             <td>{{ $staff->StaffPhone }}</td>
-                            <td>{{ $staff->StaffAddress }}</td>
                             <td>{{ $staff->StaffHomePhone }}</td>
                             <td>{{ $staff->RoleName }}</td>
+                            <td>{{ $staff->StaffStatus }}</td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-sm">Edit</a>
                                 <a href="#" class="btn btn-danger btn-sm">Delete</a>
@@ -54,9 +54,10 @@
                         <h5 class="card-title">{{ $staff->StaffName }}</h5>
                         <p class="card-text"><strong>Email:</strong> {{ $staff->StaffEmail }}</p>
                         <p class="card-text"><strong>Phone:</strong> {{ $staff->StaffPhone }}</p>
-                        <p class="card-text"><strong>Address:</strong> {{ $staff->StaffAddress }}</p>
+                        
                         <p class="card-text"><strong>Home Phone:</strong> {{ $staff->StaffHomePhone }}</p>
                         <p class="card-text"><strong>Role:</strong> {{ $staff->RoleName }}</p>
+                        <p class="card-text"><strong>Status:</strong> {{ $staff->StaffStatus }}</p>
                         <div class="d-flex">
                             <a href="#" class="btn btn-primary btn-sm me-2">Edit</a>
                             <a href="#" class="btn btn-danger btn-sm">Delete</a>

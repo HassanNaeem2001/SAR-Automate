@@ -32,3 +32,15 @@ Route::get('allstaff',function(){
     ->get();
     return view('StaffViews.allstaff',compact('staffs'));
 })->name('allstaff');
+
+Route::get('/addstd',function () {
+    return view('StudentViews/studentregister');
+})->name('addstd');
+Route::get('/addbatch',function () {
+    return view('StudentViews/batchregister');
+})->name('addbatch');
+Route::get('/addcoursefamily',function () {
+    return view('StudentViews/addcoursefamily');
+})->name('addcoursefamily');
+
+Route::post('inscoursefamily',[StudentController::class,('insertcoursefamily')])->name('inscoursefamily');

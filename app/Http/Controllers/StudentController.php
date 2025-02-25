@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
-use App\Models\Staff;
+use App\Models\Staff; 
+use App\Models\CourseFamily; 
 class StudentController extends Controller
 {
     public function addrole(Request $request)
@@ -46,5 +47,17 @@ class StudentController extends Controller
         $staff->StaffImage = $imageName;
         $staff->save();
         return redirect()->back()->with('message', 'Staff Added Successfully');
+    }
+    public function insertcoursefamily(Request $req)
+    {
+        $req->validate([
+            'coursefamilynumber' => 'required',
+        ]);
+        $cfno = $req->coursefamilynumber;
+        $coursefamily = new CourseFamily();
+        $coursefamily->Course_Family_Number = $cfno;
+        $coursefamily->save();
+        return redirect()->back()->with('message', 'Course Family Added Successfully');
+
     }
 }
