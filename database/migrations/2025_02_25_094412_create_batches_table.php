@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('BatchCode');
             $table->string('BatchType');
-            $table->string('BatchStartingDate')->default(current_date());
+            $table->string('BatchTimings');
+            $table->string('BatchStartingDate')->default(now());
             $table->integer('BatchCourseFamily');
+            $table->integer('BatchFaculty');
             $table->foreign('BatchCourseFamily')->references('id')->on('course_families');
+            $table->foreign('BatchFaculty')->references('id')->on('staff');
             $table->timestamps();
         });
     }

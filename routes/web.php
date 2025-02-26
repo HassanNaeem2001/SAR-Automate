@@ -5,6 +5,7 @@ use App\Models\Role;
 use App\Models\Staff;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\DB;
+use App\Models\CourseFamily;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,7 +38,9 @@ Route::get('/addstd',function () {
     return view('StudentViews/studentregister');
 })->name('addstd');
 Route::get('/addbatch',function () {
-    return view('StudentViews/batchregister');
+    $rec = CourseFamily::get();
+    $rec2 = Staff::get();
+    return View('StudentViews.batchregister',compact(['rec','rec2']));
 })->name('addbatch');
 Route::get('/addcoursefamily',function () {
     return view('StudentViews/addcoursefamily');
